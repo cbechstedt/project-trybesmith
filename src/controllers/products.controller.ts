@@ -8,4 +8,9 @@ const createProduct = async (req: Request, res: Response): Promise<Response<IPro
   return res.status(201).json(newProduct);
 };
 
-export default { createProduct };
+const getProducts = async (req: Request, res: Response) => {
+  const products = await productsService.getProducts();
+  return res.status(200).json(products);
+};
+
+export default { createProduct, getProducts };
