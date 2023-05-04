@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 import { IUser } from '../interfaces/User';
 import usersService from '../services/users.service';
 
-const createUser = async (req: Request, res: Response) => {
+const createUser = async (req: Request, res: Response)/* : Promise<Response<IUser>> */ => {
   const user = req.body as IUser;
   const token = await usersService.createUser(user);
   return res.status(201).json({ token });
